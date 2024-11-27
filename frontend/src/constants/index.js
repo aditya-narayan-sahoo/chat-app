@@ -1,3 +1,12 @@
+export const PREVIEW_MESSAGES = [
+  { id: 1, content: "Hey! You seem like a chill guy? 👀 ", isSent: false },
+  {
+    id: 2,
+    content: "I'm working on some new features, I am chill !! 😎🤙",
+    isSent: true,
+  },
+];
+
 export const THEMES = [
   "light",
   "dark",
