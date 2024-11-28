@@ -7,14 +7,33 @@ import { useChatStore } from "../store/useChatStore";
 import MessageSkeleton from "./skeletons/MessageSkeleton";
 
 const ChatContainer = () => {
-  const { messages, getMessages, selectedUser, isMessagesLoading } =
-    useChatStore();
+  const {
+    messages,
+    getMessages,
+    selectedUser,
+    isMessagesLoading,
+    subscribeToMessages,
+    unsubscribeFromMessages,
+  } = useChatStore();
   const { authUser } = useAuthStore();
   const messageEndRef = useRef(null);
 
   useEffect(() => {
     getMessages(selectedUser._id);
-  }, [getMessages, selectedUser._id]);
+    subscribeToMessages();
+    return () => unsubscribeFromMessages();
+  }, [
+    getMessages,
+    selectedUser._id,
+    subscribeToMessages,
+    unsubscribeFromMessages,
+  ]);
+
+  useEffect(() => {
+    if (messageEndRef.current && messages) {
+      messageEndRef.current.scrollIntoView({ behavior: "smooth" });
+    }
+  }, [messages]);
 
   if (isMessagesLoading) {
     return (
