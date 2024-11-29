@@ -5,4 +5,5 @@ export function formatMessageTime(date) {
     hour12: false,
   });
 }
-export const BACKEND_URL = "http://localhost:5000";
+export const BACKEND_URL =
+  import.meta.env.MODE === "development" ? "http://localhost:5000" : "/";
