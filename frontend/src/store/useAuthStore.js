@@ -19,7 +19,7 @@ export const useAuthStore = create((set, get) => ({
       set({ authUser: res.data });
       get().connectSocket();
     } catch (err) {
-      console.log("Error in checkAuth", err);
+      toast.error(err?.message);
       set({ authUser: null });
     } finally {
       set({ isCheckingAuth: false });
