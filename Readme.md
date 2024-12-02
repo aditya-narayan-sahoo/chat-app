@@ -67,6 +67,8 @@ src/
 
 ### <a name="features">🔋 Features</a>
 
+👉 **Server using Express & Socket.io:** Made a server using express and then encapsulated it inside socket.io to perform tasks in real time.
+
 👉 **JWT-Based Security:** Ensuring secure user authentication and authorization through JSON Web Tokens, providing a seamless login experience.
 
 👉 **Instant Communication:** Enabling real-time messaging capabilities with Socket.io, allowing users to send and receive messages instantly.
@@ -83,7 +85,7 @@ src/
 
 Follow these steps to set up the project locally on your machine.
 
-**Prerequisites**
+**Prerequisites:**
 
 Make sure you have the following installed on your machine:
 
@@ -91,14 +93,14 @@ Make sure you have the following installed on your machine:
 - [Node.js](https://nodejs.org/en)
 - [npm](https://www.npmjs.com/)
 
-**Cloning the Repository**
+**Cloning the Repository:**
 
 ```
 git clone https://github.com/aditya-narayan-sahoo/chat-app.git
 cd chat-app
 ```
 
-**Installation**
+**Installation:**
 
 Install & Build the project dependencies using npm:
 
@@ -106,10 +108,37 @@ Install & Build the project dependencies using npm:
 npm run build
 ```
 
-**Running the Project**
+**Creating Environemnt variable files:**
+
+- Create a .env file in backend folder having these fields:
+
+  ```
+  CLOUDINARY_API_KEY=your_cloudindary_api_key
+  CLOUDINARY_API_SECRET=your_cloudinary_api_secret
+  CLOUDINARY_CLOUD_NAME=your_cloudinary_cloud_name
+  JWT_SECRET=your_jwt_secret_key
+  PORT=port_number
+  MONGODB_URI=your_mongodb_uri
+  NODE_ENV=development
+  ```
+
+- Create a .env file in frontend folder having these fields:
+  ```
+  MODE=development
+  ```
+
+**Running the Project:**
 
 ```
+cd backend
 npm run start
+```
+
+Open new terminal
+
+```
+cd frontend
+npm run dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) in your browser to view the project.
